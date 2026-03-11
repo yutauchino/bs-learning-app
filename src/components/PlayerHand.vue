@@ -2,17 +2,11 @@
 import type { Card, HandType } from '../types'
 import PlayingCard from './PlayingCard.vue'
 
-const props = defineProps<{
+defineProps<{
   cards: Card[]
   handType: HandType
   handValue: number
 }>()
-
-const handTypeLabels: Record<HandType, string> = {
-  hard: 'Hard',
-  soft: 'Soft',
-  split: 'Split',
-}
 </script>
 
 <template>
@@ -22,9 +16,6 @@ const handTypeLabels: Record<HandType, string> = {
       <div class="cards">
         <PlayingCard v-for="(card, i) in cards" :key="i" :card="card" />
       </div>
-    </div>
-    <div class="hand-info">
-      {{ handTypeLabels[handType] }} {{ handValue }}
     </div>
   </div>
 </template>
@@ -53,12 +44,5 @@ const handTypeLabels: Record<HandType, string> = {
   display: flex;
   justify-content: center;
   gap: 8px;
-}
-.hand-info {
-  margin-top: 8px;
-  font-family: var(--font-number);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-accent-light);
 }
 </style>
