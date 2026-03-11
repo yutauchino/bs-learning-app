@@ -1,0 +1,24 @@
+:root {
+  --color-bg: #1a1a2e;
+  --color-surface: #16213e;
+  --color-surface-light: #0f3460;
+  --color-primary: #e94560;
+  --color-primary-light: #ff6b81;
+  --color-text: #eee;
+  --color-text-muted: #999;
+  --color-success: #2ecc71;
+  --color-error: #e74c3c;
+  --color-correct-bg: rgba(46, 204, 113, 0.15);
+  --color-incorrect-bg: rgba(231, 76, 60, 0.15);
+
+  /* BS Chart colors */
+  --bs-hit: #ffffff;
+  --bs-stand: #ffeaa7;
+  --bs-double: #74b9ff;
+  --bs-split: #55efc4;
+  --bs-surrender: #ff7675;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --tap-min: 44px;
+}
