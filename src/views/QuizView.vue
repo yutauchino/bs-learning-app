@@ -20,7 +20,7 @@ const mode = computed(() => (route.params.mode as GameMode) || 'all')
 
 const { generateHand } = useCardGenerator()
 const { getCorrectAction, getValidActions } = useBasicStrategy()
-const { record } = useSession()
+const { record, reset } = useSession()
 const { isOpen: chartOpen, toggle: toggleChart, close: closeChart } = useBottomSheet()
 
 // Quiz state
@@ -68,6 +68,7 @@ function goBack() {
 }
 
 onMounted(() => {
+  reset()
   deal()
 })
 </script>
@@ -96,6 +97,8 @@ onMounted(() => {
         v-if="answered"
         :is-correct="isCorrect"
         :correct-action="correctAction"
+        :dealer-card="dealerCard"
+        :hand-value="handValue"
         @next="deal"
       />
 
@@ -135,13 +138,13 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
 }
 .back-btn {
   min-height: var(--tap-min);
   padding: 8px 12px;
   background: transparent;
-  color: var(--color-primary-light);
+  color: var(--color-accent);
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -160,7 +163,7 @@ onMounted(() => {
 .quiz-footer {
   padding: 8px 16px 20px;
   text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
 }
 .chart-btn {
   width: 100%;
@@ -168,9 +171,10 @@ onMounted(() => {
   padding: 12px;
   border-radius: var(--radius-sm);
   background: var(--color-surface);
-  color: var(--color-text-muted);
+  color: var(--color-accent);
   font-size: 0.9rem;
   font-weight: 600;
+  border: 1px solid rgba(201, 168, 76, 0.25);
 }
 .chart-btn:active {
   background: var(--color-surface-light);

@@ -15,9 +15,10 @@ const { stats, rate } = useSession()
 
 <style scoped>
 .session-stats {
-  font-size: 0.95rem;
+  font-family: var(--font-number);
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-accent-light);
 }
 .rate {
   color: var(--color-text-muted);

@@ -82,26 +82,27 @@ function isHighlighted(row: string, col: string): boolean {
 .chart-table {
   border-collapse: collapse;
   width: 100%;
+  font-family: var(--font-number);
   font-size: 0.7rem;
   text-align: center;
 }
 .chart-table th,
 .chart-table td {
   padding: 4px 2px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(201, 168, 76, 0.12);
   min-width: 24px;
 }
 .chart-table thead th {
   background: var(--color-surface-light);
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-accent);
   position: sticky;
   top: 0;
 }
 .chart-table tbody th {
   background: var(--color-surface-light);
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-accent);
   position: sticky;
   left: 0;
   z-index: 1;
@@ -110,15 +111,17 @@ function isHighlighted(row: string, col: string): boolean {
   position: sticky;
   left: 0;
   z-index: 2;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
 }
-.cell-h   { background: var(--bs-hit);      color: #333; }
-.cell-s   { background: var(--bs-stand);     color: #333; }
-.cell-d   { background: var(--bs-double);    color: #333; }
-.cell-sp  { background: var(--bs-split);     color: #333; }
-.cell-sur { background: var(--bs-surrender); color: #333; }
+.cell-h   { background: var(--bs-hit);      color: #fff; }
+.cell-s   { background: var(--bs-stand);     color: #fff; }
+.cell-d   { background: var(--bs-double);    color: #fff; }
+.cell-sp  { background: var(--bs-split);     color: #fff; }
+.cell-sur { background: var(--bs-surrender); color: #fff; }
 
 .highlight {
-  outline: 3px solid var(--color-primary);
+  outline: 3px solid var(--color-accent);
   outline-offset: -2px;
   animation: pulse 1.2s ease-in-out infinite;
   z-index: 3;
@@ -126,7 +129,7 @@ function isHighlighted(row: string, col: string): boolean {
 }
 
 @keyframes pulse {
-  0%, 100% { outline-color: var(--color-primary); }
-  50% { outline-color: var(--color-primary-light); }
+  0%, 100% { outline-color: var(--color-accent); }
+  50% { outline-color: rgba(201, 168, 76, 0.4); }
 }
 </style>

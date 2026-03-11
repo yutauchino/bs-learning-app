@@ -15,19 +15,30 @@ const cid = computed(() => {
 </script>
 
 <template>
-  <playing-card
-    v-if="faceDown"
-    rank="0"
-    class="card"
-  />
-  <playing-card
-    v-else-if="cid"
-    :cid="cid"
-    class="card"
-  />
+  <div class="card-wrap">
+    <playing-card
+      v-if="faceDown"
+      rank="0"
+      class="card"
+    />
+    <playing-card
+      v-else-if="cid"
+      :cid="cid"
+      class="card"
+    />
+  </div>
 </template>
 
 <style scoped>
+.card-wrap {
+  display: inline-block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  animation: cardIn 0.15s ease-out;
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
 .card {
   --bg: transparent;
   display: inline-block;

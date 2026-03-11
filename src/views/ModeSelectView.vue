@@ -20,8 +20,9 @@ function selectMode(mode: GameMode) {
 <template>
   <div class="mode-select">
     <div class="header">
-      <h1 class="title">BS トレーナー</h1>
+      <h1 class="title">BS Trainer</h1>
       <p class="subtitle">ベーシックストラテジー学習</p>
+      <div class="divider" />
     </div>
     <div class="modes">
       <ModeCard
@@ -53,14 +54,23 @@ function selectMode(mode: GameMode) {
   padding-top: 24px;
 }
 .title {
-  font-size: 1.8rem;
+  font-family: var(--font-heading);
+  font-size: 2rem;
   font-weight: 800;
-  color: var(--color-primary-light);
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 12px rgba(201, 168, 76, 0.3);
 }
 .subtitle {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   margin-top: 4px;
+}
+.divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  margin: 16px auto 0;
 }
 .modes {
   display: flex;

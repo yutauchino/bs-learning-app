@@ -30,22 +30,25 @@ const emit = defineEmits<{
   border-radius: var(--radius);
   background: var(--color-surface);
   text-align: left;
-  transition: background 0.15s, transform 0.1s;
-  border: 1px solid transparent;
+  transition: background 0.15s, transform 0.1s, border-color 0.15s;
+  border: 1px solid rgba(201, 168, 76, 0.2);
   min-height: var(--tap-min);
   position: relative;
 }
 .mode-card:not(.disabled):active {
   transform: scale(0.98);
   background: var(--color-surface-light);
+  border-color: var(--color-accent);
 }
 .mode-card.disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 .mode-title {
-  font-size: 1.15rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
   font-weight: 700;
+  color: var(--color-accent-light);
   margin-bottom: 4px;
 }
 .mode-desc {

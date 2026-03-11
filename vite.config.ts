@@ -18,8 +18,8 @@ export default defineConfig({
         name: 'BS トレーナー',
         short_name: 'BS Trainer',
         description: 'ブラックジャック ベーシックストラテジー学習アプリ',
-        theme_color: '#1a1a2e',
-        background_color: '#1a1a2e',
+        theme_color: '#0a1f0a',
+        background_color: '#0a1f0a',
         display: 'standalone',
         orientation: 'portrait',
         icons: [

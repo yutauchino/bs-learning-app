@@ -40,22 +40,41 @@ const emit = defineEmits<{
   min-height: var(--tap-min);
   padding: 12px 20px;
   border-radius: var(--radius-sm);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--color-surface-light);
-  transition: background 0.15s, transform 0.1s;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 .action-btn:active:not(:disabled) {
   transform: scale(0.95);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 .action-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
-.action-h   { background: #3498db; }
-.action-s   { background: #e67e22; }
-.action-d   { background: #9b59b6; }
-.action-sp  { background: #27ae60; }
-.action-sur { background: #7f8c8d; }
+.action-h {
+  background: linear-gradient(180deg, #2a5a3a, #1a3a2a);
+  border-color: #4a8a5a;
+}
+.action-s {
+  background: linear-gradient(180deg, #5a3a2a, #3a2a1a);
+  border-color: #8a6a4a;
+}
+.action-d {
+  background: linear-gradient(180deg, #4a3a5a, #2a2a3a);
+  border-color: #7a6a8a;
+}
+.action-sp {
+  background: linear-gradient(180deg, #2a4a4a, #1a2a3a);
+  border-color: #4a8a8a;
+}
+.action-sur {
+  background: linear-gradient(180deg, #3a3a3a, #2a2a2a);
+  border-color: #6a6a6a;
+}
 </style>

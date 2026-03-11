@@ -17,9 +17,11 @@ const handTypeLabels: Record<HandType, string> = {
 
 <template>
   <div class="player-hand">
-    <div class="label">プレイヤー</div>
-    <div class="cards">
-      <PlayingCard v-for="(card, i) in cards" :key="i" :card="card" />
+    <div class="label">Player</div>
+    <div class="card-area">
+      <div class="cards">
+        <PlayingCard v-for="(card, i) in cards" :key="i" :card="card" />
+      </div>
     </div>
     <div class="hand-info">
       {{ handTypeLabels[handType] }} {{ handValue }}
@@ -32,9 +34,20 @@ const handTypeLabels: Record<HandType, string> = {
   text-align: center;
 }
 .label {
+  font-family: var(--font-heading);
   font-size: 0.85rem;
-  color: var(--color-text-muted);
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   margin-bottom: 8px;
+}
+.card-area {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  background: rgba(26, 46, 26, 0.6);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
 }
 .cards {
   display: flex;
@@ -43,8 +56,9 @@ const handTypeLabels: Record<HandType, string> = {
 }
 .hand-info {
   margin-top: 8px;
-  font-size: 1.1rem;
+  font-family: var(--font-number);
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--color-primary-light);
+  color: var(--color-accent-light);
 }
 </style>

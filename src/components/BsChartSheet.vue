@@ -54,7 +54,7 @@ function onTouchEnd(e: TouchEvent) {
         <div class="sheet-handle" />
 
         <div class="sheet-header">
-          <h3>BSチャート</h3>
+          <h3>BS Chart</h3>
           <button class="close-btn" @click="emit('close')">閉じる</button>
         </div>
 
@@ -81,7 +81,8 @@ function onTouchEnd(e: TouchEvent) {
         <div class="legend">
           <span class="legend-item"><span class="swatch cell-h">H</span> Hit</span>
           <span class="legend-item"><span class="swatch cell-s">S</span> Stand</span>
-          <span class="legend-item"><span class="swatch cell-d">D</span> Double</span>
+          <span class="legend-item"><span class="swatch cell-d">D</span> Double (otherwise Hit)</span>
+          <span class="legend-item"><span class="swatch cell-d">Ds</span> Double (otherwise Stand)</span>
           <span class="legend-item"><span class="swatch cell-sp">SP</span> Split</span>
           <span class="legend-item"><span class="swatch cell-sur">SUR</span> Surrender</span>
         </div>
@@ -94,7 +95,7 @@ function onTouchEnd(e: TouchEvent) {
 .sheet-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   z-index: 100;
   display: flex;
   align-items: flex-end;
@@ -104,6 +105,7 @@ function onTouchEnd(e: TouchEvent) {
   max-height: 85vh;
   background: var(--color-surface);
   border-radius: var(--radius) var(--radius) 0 0;
+  border-top: 2px solid var(--color-accent);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -111,9 +113,10 @@ function onTouchEnd(e: TouchEvent) {
 .sheet-handle {
   width: 40px;
   height: 4px;
-  background: var(--color-text-muted);
+  background: var(--color-accent);
   border-radius: 2px;
   margin: 8px auto 4px;
+  opacity: 0.6;
 }
 .sheet-header {
   display: flex;
@@ -122,19 +125,22 @@ function onTouchEnd(e: TouchEvent) {
   padding: 8px 16px;
 }
 .sheet-header h3 {
+  font-family: var(--font-heading);
   font-size: 1rem;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
 }
 .close-btn {
   min-height: var(--tap-min);
   padding: 8px 16px;
   background: transparent;
-  color: var(--color-primary-light);
+  color: var(--color-accent);
   font-size: 0.9rem;
   font-weight: 600;
 }
 .tabs {
   display: flex;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
   padding: 0 16px;
 }
 .tab {
@@ -142,13 +148,15 @@ function onTouchEnd(e: TouchEvent) {
   padding: 10px;
   background: transparent;
   color: var(--color-text-muted);
-  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
   font-weight: 600;
   border-bottom: 2px solid transparent;
+  letter-spacing: 0.05em;
 }
 .tab.active {
-  color: var(--color-primary-light);
-  border-bottom-color: var(--color-primary);
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 .sheet-body {
   flex: 1;
@@ -162,8 +170,9 @@ function onTouchEnd(e: TouchEvent) {
   justify-content: center;
   gap: 8px;
   padding: 10px 12px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  font-size: 0.75rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
 }
 .legend-item {
   display: flex;
@@ -176,10 +185,10 @@ function onTouchEnd(e: TouchEvent) {
   height: 16px;
   border-radius: 3px;
   text-align: center;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   line-height: 16px;
-  color: #333;
+  color: #fff;
 }
 .cell-h   { background: var(--bs-hit); }
 .cell-s   { background: var(--bs-stand); }
@@ -189,11 +198,11 @@ function onTouchEnd(e: TouchEvent) {
 
 .sheet-enter-active,
 .sheet-leave-active {
-  transition: opacity 0.25s;
+  transition: opacity 0.3s;
 }
 .sheet-enter-active .sheet,
 .sheet-leave-active .sheet {
-  transition: transform 0.25s ease-out;
+  transition: transform 0.3s ease-out;
 }
 .sheet-enter-from,
 .sheet-leave-to {
