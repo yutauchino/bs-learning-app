@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/bs-learning-app/sw.js', { scope: '/bs-learning-app/' })})}
